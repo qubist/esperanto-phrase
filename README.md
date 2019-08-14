@@ -1,7 +1,7 @@
 # esperanto-phrase
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
-[![GitHub license](https://img.shields.io/github/license/qubist/esperanto-phrase.svg)](https://github.com/qubist/esperanto-phrase/blob/master/LICENSE.txt)
+[![GitHub license](https://img.shields.io/github/license/qubist/esperanto-phrase)](https://github.com/qubist/esperanto-phrase/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/qubist/esperanto-phrase.svg)](https://github.com/qubist/esperanto-phrase/stargazers)
 
 > A script that generates random Esperanto sentences
