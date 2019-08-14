@@ -1,0 +1,325 @@
+# Esperanto phrase generator
+
+output = [
+	<phrase.sentencecase.mergespaces.trim>
+]
+
+phrase = [
+	<transitiveVerbPhrase>.
+	<intransitiveVerbPhrase>.
+	<infinitiveVerbPhrase>.
+	<clausePhrase>.
+	<question>
+]
+
+transitiveVerbPhrase = [
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	<nounPhraseWithArticle> <verbTransitiveWithEnding> <nounPhraseWithArticleN>
+	[[<adjectiveWithMal.n> <noun.n> <noun> <verbTransitiveWithEnding>/<adjectiveWithMal.j.n> <noun.j.n> <noun> <verbTransitiveWithEnding>]/<noun.n> <verbTransitiveWithEnding> <noun>]
+]
+
+intransitiveVerbPhrase = [
+	<nounPhraseWithArticle> [<adverbBeforeVerbIntransitive> ////]<verbIntransitiveWithEnding>[ <adverbAfterVerbIntransitive>////]
+]
+
+infinitiveVerbPhrase = [
+	<nounPhraseWithArticle> <verbInfinitiveWithEnding> <verbTransitive>i <nounPhraseWithArticleN>
+]
+
+clausePhrase = [
+	<nounPhraseWithArticle> <verbClauseWithEnding>, ke <clause>
+]
+
+asksPhrase = [
+	<nounPhraseWithArticle> demand[is/is/os/as/as/as/as], ĉu <clause>
+]
+
+clause = [
+	<infinitiveVerbPhrase>
+	<intransitiveVerbPhrase>
+	<transitiveVerbPhrase>
+
+	<infinitiveVerbPhrase>
+	<intransitiveVerbPhrase>
+	<transitiveVerbPhrase>
+
+	<infinitiveVerbPhrase>
+	<intransitiveVerbPhrase>
+	<transitiveVerbPhrase>
+
+	<clausePhrase>
+]
+
+question = [
+	<asksPhrase>.
+	ĉu <transitiveVerbPhrase>?
+	kiom da <noun.j> <pronoun> vol[is/as/as/as/as/as/os] <prepositionPlace> <possesivePronoun> <nounPhrase>?
+	ĉu <pronoun> volas, ke <pronoun> [verŝ/ŝut/met][is/as/as/as/as/as/os] [<noun.n>/<noun.j.n>] en <possesivePronoun.n> <noun.n>?
+	kial [<transitiveVerbPhrase>/<intransitiveVerbPhrase>]?
+	ĉu <pronoun> ŝatas min?
+]
+
+nounPhraseWithArticleN = [
+	[la /]<nounPhrase.n>
+	[la /]<nounPhrase.n>
+	[<possesivePronoun.j.n> <nounWithAdjective.j.n>/<possesivePronoun.n> <nounWithAdjective.n>]
+	[<pronoun.n>/<pronoun.n>/<properNoun>]
+]
+nounPhraseWithArticle = [
+  [la /]<nounPhrase>
+  [la /]<nounPhrase>
+	[<possesivePronoun.j> <nounWithAdjective.j>/<possesivePronoun> <nounWithAdjective>]
+  [<pronoun>/<pronoun>/<properNoun>]
+]
+nounPhrase = [
+	<noun>
+	<noun.j>
+	<noun>
+	<noun.j>
+	<nounWithAdjective.j>
+	<nounWithAdjective>
+]
+
+# a noun paired with a number of adjectives modifying it
+# accepts .n and .j modifiers
+nounWithAdjective = [
+	<adjectiveWithMal> <noun>
+	[<adjectiveWithMal> ////////]<nounWithAdjective>
+]
+
+# an adjective, occasionally negated with the mal- prefix
+adjectiveWithMal = [mal////]<adjective>
+
+pronoun = [
+  li
+  ili
+  ŝi
+  ni
+  vi
+  ri
+  ĝi
+  mi
+	si
+]
+
+properNoun = [Mazi/Zamenhoff]
+
+noun = [
+  ovo
+  knabo
+  knabino
+  ĉokolado
+  tago
+  mano
+  piedo
+  lingvo
+  robo
+  ĉapelo
+  abelo
+  bovino
+  kato
+  hundo
+  suko
+  lago
+  lango
+  suno
+  luno
+  lakto
+  pomo
+  ĉielo
+  vento
+  horloĝo
+  afero
+  infano
+  fiŝo
+  birdo
+  haŭto
+  vosto
+  dento
+  stelo
+  polvo
+  nubo
+	paĉjo
+	panjo
+	lito
+]
+
+adverbAfterVerbIntransitive = [
+	hodiaŭ
+	rapide
+	malrapide
+	hejme
+	bone
+	malbone
+	trankvile
+	laŭte
+	malpublike
+]
+adverbBeforeVerbIntransitive = [
+	certe
+	ankaŭ
+	preskaŭ
+	jam
+	nekredeble
+]
+
+verbTransitiveWithEnding = [
+  <verbTransitive>[is/is/as/as/as/as/os]
+]
+verbIntransitiveWithEnding = [
+  <verbIntransitive>[is/is/as/as/as/as/os]
+]
+verbInfinitiveWithEnding = [
+  <verbInfinitive>[is/is/as/as/as/as/os]
+]
+verbClauseWithEnding = [
+  <verbClause>[is/is/as/as/as/as/os]
+]
+
+verbTransitive = [
+  hav
+  uz
+  bezon
+  dir
+  aŭd
+  verŝ
+  memor
+  vol
+  spekt
+  kudr
+  sekv
+	ŝat
+]
+
+verbIntransitive = [
+  kudr
+  lud
+  memor
+  prov
+  prav
+  kur
+  marŝ
+  dorm
+  naĝ
+  sid
+]
+
+verbInfinitive = [
+  pov
+  prov
+  vol
+	memor
+]
+
+verbClause = [
+  dir
+  memor
+  spekt
+  kon
+	vid
+]
+
+# verbRequestClause = [
+#   postul
+#   vol
+# ]
+
+# a verb used with a directional preposition and a
+# Ex: "Mi KURAS sur la tablo"
+verbDirection = [
+  kur
+  marŝ
+  naĝ
+  ir
+]
+
+# a verb preposition used with a verb and a destination
+# Ex: "Mi kuras el la urso"
+prepositionDirection = [
+  el
+  al
+	tra
+	preter
+	trans
+]
+
+# an adverb used to convey direction
+# Ex: Mi kuras HEJMEN
+adverbDirection = [
+	suben
+	supren
+	hejmen
+	# "___ward"
+	<root>en
+	norden
+	suden
+]
+
+# a verb used with a preposition and a location
+# Ex: "Mi SIDAS sur la tablo"
+verbPlace = [
+  lud
+  dorm
+  sid
+  star
+  danc
+]
+
+# a preposition used with a verb and a location
+# Ex: "Mi sidas SUR la tablo"
+prepositionPlace = [
+  en
+  sur
+  sub
+  apud
+  antaŭ
+  malantaŭ
+]
+
+# an adjective
+adjective = [
+  blua
+  ruĝa
+  verda
+  flava
+  varma
+  granda
+  laborema
+  kolera
+  hela
+  longa
+  nigra
+  nova
+  seka
+  ĝusta
+  proksima
+	aĉa
+	eta
+]
+
+# a possesive pronoun, can be mixed in with adjectives sometimes
+# Ex: mia, ilia, ĝia
+possesivePronoun = [
+	<pronoun>a
+]
+
+# a number requires plural
+number = [
+  du
+  tri
+  kvar
+  kvin
+  ses
+  sep
+  ok
+  naŭ
+  dek
+  cent
+]
